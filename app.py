@@ -102,7 +102,6 @@ def google_search_tool(query: str, num_results: int = 5):
 
 
 
-#============goodbye===============
 
 
 
