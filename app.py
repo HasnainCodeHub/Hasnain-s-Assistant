@@ -144,7 +144,7 @@ def get_latest_news(topic: str) -> str:
     Example:
         get_latest_news("Technology")
     """
-    api_key = '85fb755af35f41fbb3b79921facffa5f'  # Replace with your actual API key
+    api_key = os.getenv("NEWS_API_KEY")
     url = f"https://newsapi.org/v2/everything?q={topic}&apiKey={api_key}"
     print("Tool Message: News Tool is Called!")
     print("=" * 40)
@@ -226,7 +226,7 @@ def get_stock_price(symbol: str) -> str:
         Exception: For any other unexpected errors during the execution of the function.
 
     """
-    api_key =  '8pAMt7yDR03RyrywzLsMZ7gevHSC0GAU'  # Replace this with your actual secret API key from Polygon
+    api_key = os.getenv("STOCK_API_KEY")  # Replace this with your actual secret API key from Polygon
     url = f"https://api.polygon.io/v2/aggs/ticker/{symbol}/prev"  # Polygon endpoint for previous close price
     
     print("Tool Message: Stock Price Tool is Called!")
@@ -279,7 +279,7 @@ def convert_currency(amount: float, from_currency: str, to_currency: str, api_ke
 
     # PLACE YOUR API KEY HERE
     params = {
-        "app_id": 'fa89393965414a19b5e1a50755259b6c'  # <-- REPLACE 'api_key' WITH YOUR API KEY
+        "app_id":os.getenv("CURRENCY_API_KEY")  # <-- REPLACE 'api_key' WITH YOUR API KEY
     }
     print("Tool Message: Currency Converter Tool is Called!")
     print("=" * 40)
@@ -318,7 +318,7 @@ def get_weather(city: str) -> str:
     Returns:
         str: Weather information or error message.
     """
-    api_key = "049048adef5f0ac4aa3012b93db79b78"
+    api_key = os.getenv("WEATHER_API_KEY")
     base_url = "https://api.openweathermap.org/data/2.5/weather"
     params = {
         "q": city,
